@@ -1,0 +1,199 @@
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* UI overlay with z-index to appear above the Canvas */
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  box-sizing: border-box;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Make text readable */
+  pointer-events: none; /* Allow clicking through to the canvas by default */
+}
+
+.game-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.game-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: #ffcc00;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.game-controls {
+  pointer-events: auto; /* Allow interaction with controls */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: auto;
+  max-width: 80%;
+}
+
+.start-button {
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 15px;
+}
+
+.start-button:hover {
+  background-color: #ffd633;
+  transform: scale(1.05);
+}
+
+/* Portrait-specific styles */
+@media (orientation: portrait) {
+  .ui-overlay {
+    padding-top: 40px;
+  }
+}
+
+/* Game elements */
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.game-over-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  pointer-events: auto;
+  margin: auto;
+}
+
+.game-over-container h2 {
+  color: #ff3333;
+  margin-top: 0;
+}
+
+.final-score {
+  font-size: 2.5rem;
+  color: #ffcc00;
+  margin: 20px 0;
+}
+
+.lane-indicators {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 20%;
+}
+
+.lane-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.lane-indicator.active {
+  background-color: #ffcc00;
+  box-shadow: 0 0 10px #ffcc00;
+}
+
+/* Touch controls for mobile */
+.touch-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 33%;
+  display: flex;
+  pointer-events: auto;
+}
+
+.touch-control {
+  flex: 1;
+  height: 100%;
+}
+
+/* For smaller mobile devices */
+@media (max-width: 480px) {
+  .ui-overlay h1 {
+    font-size: 1.8rem;
+  }
+  
+  .ui-overlay p {
+    font-size: 0.9rem;
+  }
+  
+  .game-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .score {
+    font-size: 1.2rem;
+  }
+  
+  .start-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+}
